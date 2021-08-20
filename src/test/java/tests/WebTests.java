@@ -6,7 +6,7 @@ import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 
-public class WebTests extends TestBase {
+public class WebTests {
 
     @Test
     public void testWebLocal() {
@@ -14,7 +14,7 @@ public class WebTests extends TestBase {
         WebConfig config = ConfigFactory.create(WebConfig.class, System.getProperties());
         assertThat(config.browser()).isEqualTo("chrome");
         assertThat(config.browserVersion()).isEqualTo("91.0");
-        assertThat(config.remoteDriverUrl()).isEqualTo("");
+        assertThat(config.remoteDriverUrl()).isEqualTo(false);
     }
     // команда для запуска теста ./gradlew clean test -Dremote=local
 
@@ -24,7 +24,7 @@ public class WebTests extends TestBase {
         WebConfig config = ConfigFactory.create(WebConfig.class, System.getProperties());
         assertThat(config.browser()).isEqualTo("firefox");
         assertThat(config.browserVersion()).isEqualTo("87.0");
-        assertThat(config.remoteDriverUrl()).isEqualTo("https://user1:1234@selenoid.autotests.cloud/wd/hub/");
+        assertThat(config.remoteDriverUrl()).isEqualTo(true);
     }
 
     // команда для запуска теста ./gradlew clean test -Dremote=remote

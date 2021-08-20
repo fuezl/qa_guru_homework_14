@@ -3,10 +3,11 @@ package config;
 import org.aeonbits.owner.Config;
 
 @Config.Sources({
-        "classpath:${remote}.properties" //файл в папочке resources
+        "classpath:${remote}.properties"
 })
 
 public interface WebConfig extends Config {
+
     @Key("browser")
     String browser();
 
@@ -14,5 +15,5 @@ public interface WebConfig extends Config {
     String browserVersion();
 
     @Key("remoteDriverUrl")
-    String remoteDriverUrl();
+    Boolean remoteDriverUrl();
 }
